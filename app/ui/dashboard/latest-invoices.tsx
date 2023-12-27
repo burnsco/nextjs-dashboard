@@ -1,8 +1,8 @@
+import { LatestInvoice } from '@/app/lib/definitions';
+import { lusitana } from '@/app/ui/fonts';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { lusitana } from '@/app/ui/fonts';
-import { LatestInvoice } from '@/app/lib/definitions';
 export default async function LatestInvoices({
   latestInvoices,
 }: {
@@ -16,19 +16,21 @@ export default async function LatestInvoices({
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
         {/* NOTE: comment in this code when you get to this point in the course */}
 
-        {/* <div className="bg-white px-6">
+        <div className="bg-white px-6">
           {latestInvoices.map((invoice, i) => {
             return (
               <div
                 key={invoice.id}
                 className={clsx(
                   'flex flex-row items-center justify-between py-4',
+                  // have a top border unless it's the first item (the top item)
                   {
                     'border-t': i !== 0,
                   },
                 )}
               >
                 <div className="flex items-center">
+                  {/* create the circular avatar */}
                   <Image
                     src={invoice.image_url}
                     alt={`${invoice.name}'s profile picture`}
@@ -37,6 +39,7 @@ export default async function LatestInvoices({
                     height={32}
                   />
                   <div className="min-w-0">
+                    {/* truncate does ... to overflowing text (if there is no room?) */}
                     <p className="truncate text-sm font-semibold md:text-base">
                       {invoice.name}
                     </p>
@@ -53,7 +56,7 @@ export default async function LatestInvoices({
               </div>
             );
           })}
-        </div> */}
+        </div>
         <div className="flex items-center pb-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />
           <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>

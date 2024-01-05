@@ -1,7 +1,7 @@
 'use client';
 
 import { createInvoice } from '@/app/lib/actions';
-import { CustomerField } from '@/app/lib/definitions';
+import { CustomerField, type State } from '@/app/lib/definitions';
 import { Button } from '@/app/ui/button';
 import {
   CheckIcon,
@@ -14,7 +14,11 @@ import { useFormState } from 'react-dom';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
-  const [state, formAction] = useFormState(createInvoice, initialState);
+
+  const [state, formAction] = useFormState<State, FormData>(
+    createInvoice,
+    initialState,
+  );
 
   return (
     <form action={formAction}>
@@ -45,12 +49,13 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </div>
 
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.customerId &&
-              state.errors.customerId.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
-                </p>
-              ))}
+            {state.errors?.customerId
+              ? state.errors.customerId.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))
+              : null}
           </div>
         </div>
 

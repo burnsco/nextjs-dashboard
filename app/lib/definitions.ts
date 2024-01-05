@@ -16,6 +16,15 @@ export type Customer = {
   image_url: string;
 };
 
+export type State = {
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
+
 export type Invoice = {
   id: string;
   customer_id: string;

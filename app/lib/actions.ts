@@ -1,5 +1,6 @@
 'use server';
 
+import type { State } from '@/app/lib/definitions';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
@@ -23,14 +24,6 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInvoice = FormSchema.omit({ date: true, id: true });
 
 // This is temporary
-export type State = {
-  errors?: {
-    customerId?: string[];
-    amount?: string[];
-    status?: string[];
-  };
-  message?: string | null;
-};
 
 export async function createInvoice(prevState: State, formData: FormData) {
   // Validate form fields using Zod

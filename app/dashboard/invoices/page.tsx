@@ -20,11 +20,6 @@ export default async function InvoicesPage({
 
 	const totalPages = await fetchInvoicesPages(query)
 
-	console.log('Current Page')
-	console.log(currentPage)
-	console.log('Total Pages')
-	console.log(totalPages)
-
 	return (
 		<div className="w-full">
 			<div className="flex w-full items-center justify-between">

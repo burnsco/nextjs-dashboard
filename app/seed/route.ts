@@ -29,6 +29,8 @@ async function seedUsers() {
   return insertedUsers;
 }
 
+
+
 async function seedInvoices() {
   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 

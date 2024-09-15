@@ -3,22 +3,26 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "lint": "next lint",
+    "preview": "next preview",
     "start": "next start"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-progress": "^1.1.0",
     "@tailwindcss/forms": "^0.5.9",
     "@vercel/postgres": "^0.10.0",
     "autoprefixer": "10.4.20",
+    "babel-plugin-react-compiler": "0.0.0-experimental-de2cfda-20240912",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.441.0",
     "next": "15.0.0-canary.56",
-    "next-auth": "5.0.0-beta.19",
+    "next-auth": "5.0.0-beta.20",
     "next-themes": "^0.3.0",
-    "postcss": "8.4.45",
+    "postcss": "8.4.47",
     "react": "19.0.0-rc-f38c22b244-20240704",
     "react-dom": "19.0.0-rc-f38c22b244-20240704",
     "sonner": "^1.5.0",
@@ -31,9 +35,12 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "22.5.4",
+    "@types/node": "22.5.5",
     "@types/react": "18.3.5",
-    "@types/react-dom": "18.3.0"
+    "@types/react-dom": "18.3.0",
+    "eslint": "^9.10.0",
+    "eslint-config-next": "14.2.11",
+    "eslint-plugin-jsx-a11y": "^6.10.0"
   },
   "engines": {
     "node": ">=20.12.0"
